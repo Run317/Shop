@@ -6,7 +6,7 @@ extern char findname[256];
 
 int main(int argc, char const *argv[])
 {
-    // ¥Úø™¥•√˛∆¡
+    // ÊâìÂºÄËß¶Êë∏Â±è
     int td = open("/dev/input/event0", O_RDWR);
     if (td == -1)
     {
@@ -14,61 +14,61 @@ int main(int argc, char const *argv[])
         return 0;
     }
 
-    // ≥ı ºªØlcd
+    // ÂàùÂßãÂåñlcd
     LCD *lcd = lcd_init();
-    // ¥Úø™◊÷ø‚
+    // ÊâìÂºÄÂ≠óÂ∫ì
     Init_Font();
-    printf("≥ı ºªØLCD\n");
-    // ≥ı ºªØ…Ã∆∑Õ∑Ω⁄µ„
+    printf("ÂàùÂßãÂåñLCD\n");
+    // ÂàùÂßãÂåñÂïÜÂìÅÂ§¥ËäÇÁÇπ
     node *commodityHead = linklistInit();
-    printf("≥ı ºªØ…Ã∆∑Õ∑Ω⁄µ„\n");
-    // ≥ı ºªØ…Ã∆∑–≈œ¢
+    printf("ÂàùÂßãÂåñÂïÜÂìÅÂ§¥ËäÇÁÇπ\n");
+    // ÂàùÂßãÂåñÂïÜÂìÅ‰ø°ÊÅØ
     initInfo();
-    printf("≥ı ºªØ…Ã∆∑–≈œ¢\n");
-    // Ω´Œƒº˛–≈œ¢µº»Î¡¥±Ì
+    printf("ÂàùÂßãÂåñÂïÜÂìÅ‰ø°ÊÅØ\n");
+    // Â∞ÜÊñá‰ª∂‰ø°ÊÅØÂØºÂÖ•ÈìæË°®
     int commodityNum = inputInfo(commodityHead);
-    printf("Ω´Œƒº˛–≈œ¢µº»Î¡¥±Ì\n");
+    printf("Â∞ÜÊñá‰ª∂‰ø°ÊÅØÂØºÂÖ•ÈìæË°®\n");
 
-    // œ‘ æ÷˜≤Àµ•
+    // ÊòæÁ§∫‰∏ªËèúÂçï
     ShowMenu(lcd);
-    printf("œ‘ æ÷˜≤Àµ•\n");
+    printf("ÊòæÁ§∫‰∏ªËèúÂçï\n");
 
-    // ≥ı ºªØ…Ã∆∑Õ∑∆§Ω⁄µ„
-    // ¡„ ≥
-    // ≥ı ºªØ¡„ ≥Õ∑Ω⁄µ„
+    // ÂàùÂßãÂåñÂïÜÂìÅÂ§¥ÁöÆËäÇÁÇπ
+    // Èõ∂È£ü
+    // ÂàùÂßãÂåñÈõ∂È£üÂ§¥ËäÇÁÇπ
     node *foodHead = linklistInit();
     char food[128] = "food";
-    // Ω´…Ã∆∑∑÷¿‡£¨Ω´¿‡–ÕŒ™foodµƒΩ⁄µ„–¬‘ˆµΩfoodhead
+    // Â∞ÜÂïÜÂìÅÂàÜÁ±ªÔºåÂ∞ÜÁ±ªÂûã‰∏∫foodÁöÑËäÇÁÇπÊñ∞Â¢ûÂà∞foodhead
     int foodNum = productCategory(commodityHead, foodHead, food);
     printf("\n");
     printf("food head:\n");
     linklistShow(foodHead);
 
-    // “˚¡œ
+    // È•ÆÊñô
     node *drinkHead = linklistInit();
     char drink[128] = "drink";
-    // Ω´…Ã∆∑∑÷¿‡£¨Ω´¿‡–ÕŒ™drinkµƒΩ⁄µ„–¬‘ˆµΩdrinkhead
+    // Â∞ÜÂïÜÂìÅÂàÜÁ±ªÔºåÂ∞ÜÁ±ªÂûã‰∏∫drinkÁöÑËäÇÁÇπÊñ∞Â¢ûÂà∞drinkhead
     int drinkNum = productCategory(commodityHead, drinkHead, drink);
     printf("\n");
     printf("drink head:\n");
     linklistShow(drinkHead);
 
-    // ≥ı ºªØπ∫ŒÔ≥µÕ∑Ω⁄µ„
+    // ÂàùÂßãÂåñË¥≠Áâ©ËΩ¶Â§¥ËäÇÁÇπ
     node *shopcartHead = linklistInit();
-    // ≥ı ºªØ≤È’““≥√ÊÕ∑Ω⁄µ„
+    // ÂàùÂßãÂåñÊü•ÊâæÈ°µÈù¢Â§¥ËäÇÁÇπ
     node *findPagehead = linklistInit();
 
-    // œ‘ æπ„∏Ê
+    // ÊòæÁ§∫ÂπøÂëä
     showAdd(lcd);
-    sleep(5); // π„∏Êœ‘ æŒÂ√Î
+    sleep(5); // ÂπøÂëäÊòæÁ§∫‰∫îÁßí
 
-    // œ‘ æ…Ã∆∑ΩÁ√Ê
+    // ÊòæÁ§∫ÂïÜÂìÅÁïåÈù¢
     node *pos = commodityHead->next;
     node *commodityPos = commodityHead->next;
     node *foodPos = foodHead->next;
     node *drinkPos = drinkHead->next;
     showBmp(pos, lcd, commodityHead);
-    //**************≤‚ ‘***********
+    //**************ÊµãËØï***********
     // while (pos != commodityHead)
     // {
     //     showBmp(pos, lcd, commodityHead);
@@ -77,7 +77,7 @@ int main(int argc, char const *argv[])
     // }
     //********************************************
 
-    // ¥•√˛ ¬º˛x£¨y◊¯±Í
+    // Ëß¶Êë∏‰∫ã‰ª∂xÔºåyÂùêÊ†á
     int x, y;
 
     while (1)
@@ -85,22 +85,22 @@ int main(int argc, char const *argv[])
 
         touch(&x, &y, td);
         printf("(%d,%d)\n", x, y);
-        //*********************œ‘ æ…Ã∆∑*********************
-        // À˘”–…Ã∆∑
+        //*********************ÊòæÁ§∫ÂïÜÂìÅ*********************
+        // ÊâÄÊúâÂïÜÂìÅ
         if (x > 640 && x < 690 && y > 100 && y < 180)
         {
             pos = commodityHead->next;
             commodityPos = commodityHead->next;
             showBmp(pos, lcd, commodityHead);
         }
-        // ¡„ ≥¿‡
+        // Èõ∂È£üÁ±ª
         if (x > 690 && x < 740 && y > 100 && y < 180)
         {
             pos = foodHead->next;
             foodPos = foodHead->next;
             showBmp(pos, lcd, foodHead);
         }
-        // “˚¡œ¿‡
+        // È•ÆÊñôÁ±ª
         if (x > 740 && x < 790 && y > 100 && y < 180)
         {
             pos = drinkHead->next;
@@ -109,7 +109,7 @@ int main(int argc, char const *argv[])
         }
         //********************************************************
 
-        //*********************π∫ŒÔ≥µ*********************
+        //*********************Ë¥≠Áâ©ËΩ¶*********************
         if (x > 640 && x < 790 && y > 300 && y < 380)
         {
             pos = shopcartHead;
@@ -119,11 +119,11 @@ int main(int argc, char const *argv[])
 
         //********************************************************
 
-        //*********************∑≠“≥*********************
+        //*********************ÁøªÈ°µ*********************
 
-        if (x > 640 && x < 715 && y > 400 && y < 470) // œÚ«∞∑≠“≥
+        if (x > 640 && x < 715 && y > 400 && y < 470) // ÂêëÂâçÁøªÈ°µ
         {
-            // ≈–∂œ‘⁄ƒƒ∏ˆΩ⁄µ„
+            // Âà§Êñ≠Âú®Âì™‰∏™ËäÇÁÇπ
             if (pos == commodityHead->next)
             {
 
@@ -189,7 +189,7 @@ int main(int argc, char const *argv[])
                 }
             }
         }
-        if (x > 715 && x < 790 && y > 400 && y < 470) // œÚ∫Û∑≠“≥
+        if (x > 715 && x < 790 && y > 400 && y < 470) // ÂêëÂêéÁøªÈ°µ
         {
             if (pos == commodityHead->next)
             {
@@ -233,10 +233,10 @@ int main(int argc, char const *argv[])
         }
         //********************************************************
 
-        //*********************œ‘ æ…Ã∆∑œÍœ∏–≈œ¢*********************
+        //*********************ÊòæÁ§∫ÂïÜÂìÅËØ¶ÁªÜ‰ø°ÊÅØ*********************
         if (x > 10 && x < 320 && y > 10 && y < 370)
         {
-            printf("œ‘ æ…Ã∆∑œÍœ∏–≈œ¢\n");
+            printf("ÊòæÁ§∫ÂïÜÂìÅËØ¶ÁªÜ‰ø°ÊÅØ\n");
             if (pos == commodityHead->next)
                 showDitail(commodityPos, lcd);
             if (pos == foodHead->next)
@@ -246,7 +246,7 @@ int main(int argc, char const *argv[])
         }
         if (x > 320 && x < 630 && y > 10 && y < 370)
         {
-            printf("œ‘ æ…Ã∆∑œÍœ∏–≈œ¢\n");
+            printf("ÊòæÁ§∫ÂïÜÂìÅËØ¶ÁªÜ‰ø°ÊÅØ\n");
             if (pos == commodityHead->next)
                 showDitail(commodityPos->next, lcd);
             if (pos == foodHead->next)
@@ -256,11 +256,11 @@ int main(int argc, char const *argv[])
         }
         //********************************************************
 
-        //*********************‘ˆº”£¨ºı…Ÿ…Ã∆∑ ˝¡ø*********************
-        // ‘ˆº”…Ã∆∑ ˝¡ø
+        //*********************Â¢ûÂä†ÔºåÂáèÂ∞ëÂïÜÂìÅÊï∞Èáè*********************
+        // Â¢ûÂä†ÂïÜÂìÅÊï∞Èáè
         if (x > 270 && x < 320 && y > 370 && y < 470)
         {
-            printf("‘ˆº”…Ã∆∑\n");
+            printf("Â¢ûÂä†ÂïÜÂìÅ\n");
             if (pos == commodityHead->next)
             {
                 if (linklistFind(shopcartHead, commodityPos))
@@ -300,7 +300,7 @@ int main(int argc, char const *argv[])
         }
         if (x > 580 && x < 630 && y > 370 && y < 470)
         {
-            printf("‘ˆº”…Ã∆∑\n");
+            printf("Â¢ûÂä†ÂïÜÂìÅ\n");
             if (pos == commodityHead->next)
             {
                 if (linklistFind(shopcartHead, commodityPos->next))
@@ -329,7 +329,7 @@ int main(int argc, char const *argv[])
                 linklistShow(shopcartHead);
             }
         }
-        // ºı…Ÿ…Ã∆∑ ˝¡ø
+        // ÂáèÂ∞ëÂïÜÂìÅÊï∞Èáè
         if (x > 170 && x < 220 && y > 370 && y < 470)
         {
             if (pos == commodityHead->next)
@@ -339,7 +339,7 @@ int main(int argc, char const *argv[])
                     payNumsub(shopcartHead, commodityPos);
                 }
                 else
-                    printf("π∫ŒÔ≥µ÷–√ª”–∏√…Ã∆∑\n");
+                    printf("Ë¥≠Áâ©ËΩ¶‰∏≠Ê≤°ÊúâËØ•ÂïÜÂìÅ\n");
                 linklistShow(shopcartHead);
             }
             if (pos == foodHead->next)
@@ -349,7 +349,7 @@ int main(int argc, char const *argv[])
                     payNumsub(shopcartHead, foodPos);
                 }
                 else
-                    printf("π∫ŒÔ≥µ÷–√ª”–∏√…Ã∆∑\n");
+                    printf("Ë¥≠Áâ©ËΩ¶‰∏≠Ê≤°ÊúâËØ•ÂïÜÂìÅ\n");
                 linklistShow(shopcartHead);
             }
             if (pos == drinkPos->next)
@@ -359,7 +359,7 @@ int main(int argc, char const *argv[])
                     payNumsub(shopcartHead, drinkPos);
                 }
                 else
-                    printf("π∫ŒÔ≥µ÷–√ª”–∏√…Ã∆∑\n");
+                    printf("Ë¥≠Áâ©ËΩ¶‰∏≠Ê≤°ÊúâËØ•ÂïÜÂìÅ\n");
                 linklistShow(shopcartHead);
             }
             if (pos == findPagehead)
@@ -369,7 +369,7 @@ int main(int argc, char const *argv[])
                     payNumsub(shopcartHead, findPagehead->next);
                 }
                 else
-                    printf("π∫ŒÔ≥µ÷–√ª”–∏√…Ã∆∑\n");
+                    printf("Ë¥≠Áâ©ËΩ¶‰∏≠Ê≤°ÊúâËØ•ÂïÜÂìÅ\n");
                 linklistShow(shopcartHead);
             }
         }
@@ -382,7 +382,7 @@ int main(int argc, char const *argv[])
                     payNumsub(shopcartHead, commodityPos->next);
                 }
                 else
-                    printf("π∫ŒÔ≥µ÷–√ª”–∏√…Ã∆∑\n");
+                    printf("Ë¥≠Áâ©ËΩ¶‰∏≠Ê≤°ÊúâËØ•ÂïÜÂìÅ\n");
                 linklistShow(shopcartHead);
             }
             if (pos == foodHead->next)
@@ -392,7 +392,7 @@ int main(int argc, char const *argv[])
                     payNumsub(shopcartHead, foodPos->next);
                 }
                 else
-                    printf("π∫ŒÔ≥µ÷–√ª”–∏√…Ã∆∑\n");
+                    printf("Ë¥≠Áâ©ËΩ¶‰∏≠Ê≤°ÊúâËØ•ÂïÜÂìÅ\n");
                 linklistShow(shopcartHead);
             }
             if (pos == drinkPos->next)
@@ -402,23 +402,23 @@ int main(int argc, char const *argv[])
                     payNumsub(shopcartHead, drinkPos->next);
                 }
                 else
-                    printf("π∫ŒÔ≥µ÷–√ª”–∏√…Ã∆∑\n");
+                    printf("Ë¥≠Áâ©ËΩ¶‰∏≠Ê≤°ÊúâËØ•ÂïÜÂìÅ\n");
                 linklistShow(shopcartHead);
             }
         }
         //********************************************************
 
-        //*********************Ω·’À*********************
+        //*********************ÁªìË¥¶*********************
 
         if (x > 500 && x < 630 && y > 10 && y < 90)
         {
-            printf("…Ã∆∑√˚\t º€∏Ò\t  ˝ƒø\n");
+            printf("ÂïÜÂìÅÂêç\t ‰ª∑Ê†º\t Êï∞ÁõÆ\n");
             if (pos = shopcartHead->next)
             {
                 if (shopcartHead->next != shopcartHead)
                     checkout(shopcartHead);
             }
-            printf("Ω·’À≥…π¶\n");
+            printf("ÁªìË¥¶ÊàêÂäü\n");
             pos = commodityHead->next;
             commodityPos = commodityHead->next;
             showBmp(commodityPos, lcd, commodityHead);
@@ -426,7 +426,7 @@ int main(int argc, char const *argv[])
 
         //********************************************************
 
-        //*********************≤È’“*********************
+        //*********************Êü•Êâæ*********************
         if (x > 640 && x < 790 && y > 190 && y < 290)
         {
             pos = findPagehead;
@@ -452,9 +452,9 @@ int main(int argc, char const *argv[])
                 {
                     Display_characterX(120,          // x?????????
                                        120,          // y?????????
-                                       "√ª”–∏√…Ã∆∑", // GB2312 ?????????
+                                       "Ê≤°ÊúâËØ•ÂïÜÂìÅ", // GB2312 ?????????
                                        0x00,         // ????????
-                                       2);           // ??????ß≥
+                                       2);           // ??????–°
                     sleep(2);                        //
                     pos = commodityHead->next;
                     commodityPos = commodityHead->next;
@@ -471,7 +471,7 @@ int main(int argc, char const *argv[])
         //********************************************************
     }
 
-    // πÿ±’¥•√˛∆¡
+    // ÂÖ≥Èó≠Ëß¶Êë∏Â±è
     close(td);
     // ???lcd
     close_lcd(lcd);

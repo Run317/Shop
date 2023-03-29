@@ -1,6 +1,6 @@
 #include "../inc/linklist.h"
 
-// Á´±í³õÊ¼»¯
+// é“¾è¡¨åˆå§‹åŒ–
 node *linklistInit(void)
 {
     node *p = malloc(sizeof(node));
@@ -10,32 +10,32 @@ node *linklistInit(void)
         return NULL;
     }
 
-    // Çå¿ÕÊý¾ÝÓò
+    // æ¸…ç©ºæ•°æ®åŸŸ
     bzero(&p->datatype, sizeof(info));
-    // ÉèÖÃÖ¸ÕëÖ¸Ïò
+    // è®¾ç½®æŒ‡é’ˆæŒ‡å‘
     p->next = p;
     p->prev = p;
 
     return p;
 }
 
-// Á´±íÍ·²å
+// é“¾è¡¨å¤´æ’
 void linklistAdd(node *head, info newdata)
 {
-    // ÐÂÔöÊý¾Ý½Úµã
+    // æ–°å¢žæ•°æ®èŠ‚ç‚¹
     node *new = linklistInit();
-    // Êý¾ÝÓò¸³Öµ
+    // æ•°æ®åŸŸèµ‹å€¼
     new->datatype = newdata;
 
-    // ÐÞ¸ÄÐÂ½ÚµãÖ¸ÕëÖ¸Ïò
+    // ä¿®æ”¹æ–°èŠ‚ç‚¹æŒ‡é’ˆæŒ‡å‘
     new->next = head->next;
     new->prev = head;
-    // ÐÞ¸ÄÁ´±íÖ¸ÕëÖ¸Ïò
+    // ä¿®æ”¹é“¾è¡¨æŒ‡é’ˆæŒ‡å‘
     head->next->prev = new;
     head->next = new;
 }
 
-// ±éÀúÁ´±í
+// éåŽ†é“¾è¡¨
 void linklistShow(node *head)
 {
     node *p = head->next;
@@ -46,13 +46,13 @@ void linklistShow(node *head)
     }
 }
 
-// ÉÌÆ··ÖÀà
+// å•†å“åˆ†ç±»
 int productCategory(node *head, node *destHead, char *name)
 {
     int productNum = 0;
-    // ´ÓÉÌÆ·Á´±íÖÐ±éÀú²éÕÒ¸ÃÀàÐÍ½Úµã
+    // ä»Žå•†å“é“¾è¡¨ä¸­éåŽ†æŸ¥æ‰¾è¯¥ç±»åž‹èŠ‚ç‚¹
     node *pos = head->next;
-    // ½«½Úµã²åÈëÄ¿±êÍ·½Úµã
+    // å°†èŠ‚ç‚¹æ’å…¥ç›®æ ‡å¤´èŠ‚ç‚¹
     while (pos != head)
     {
         if (strcmp(name, pos->datatype.type) == 0)
@@ -66,7 +66,7 @@ int productCategory(node *head, node *destHead, char *name)
     return productNum;
 }
 
-// ½Úµã²éÕÒ
+// èŠ‚ç‚¹æŸ¥æ‰¾
 _Bool linklistFind(node *head, node *dest)
 {
     for (node *pos = head->next; pos != head; pos = pos->next)
@@ -77,7 +77,7 @@ _Bool linklistFind(node *head, node *dest)
     return 1;
 }
 
-// ¹ºÂòÊýÁ¿
+// è´­ä¹°æ•°é‡
 void payNumadd(node *head, node *dest)
 {
     for (node *pos = head->next; pos != head; pos = pos->next)
@@ -90,14 +90,14 @@ void payNumadd(node *head, node *dest)
     }
     return;
 }
-// ¼õÉÙÉÌÆ·
+// å‡å°‘å•†å“
 void payNumsub(node *head, node *dest)
 {
     for (node *pos = head->next; pos != head; pos = pos->next)
     {
         if (strcmp(pos->datatype.name, dest->datatype.name) == 0)
         {
-            // Èç¹û¸ÃÉÌÆ·Ö»ÓÐÒ»¸ö£¬´ÓÁ´±íÖÐÉ¾³ý¸ÃÉÌÆ·
+            // å¦‚æžœè¯¥å•†å“åªæœ‰ä¸€ä¸ªï¼Œä»Žé“¾è¡¨ä¸­åˆ é™¤è¯¥å•†å“
             if (pos->datatype.shopnum == 1)
             {
                 pos->prev->next = pos->next;

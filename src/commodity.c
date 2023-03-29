@@ -2,15 +2,15 @@
 #include "../inc/menu.h"
 // #include "linklist.h"
 
-// ³õÊ¼»¯ÉÌÆ·ĞÅÏ¢,½«ÉÌÆ·ĞÅÏ¢µ¼ÈëÎÄ¼ş
+// åˆå§‹åŒ–å•†å“ä¿¡æ¯,å°†å•†å“ä¿¡æ¯å¯¼å…¥æ–‡ä»¶
 void initInfo(void)
 {
-    // 1.³õÊ¼»¯ÉÌÆ·ĞÅÏ¢
+    // 1.åˆå§‹åŒ–å•†å“ä¿¡æ¯
     info cola = {
-        .name = "¿ÉÀÖ",
-        .data = "2023Äê1ÔÂ28ÈÕ",
+        .name = "å¯ä¹",
+        .data = "2023å¹´1æœˆ28æ—¥",
         .price = "3",
-        .address = "ºş±±¾£Öİ",
+        .address = "æ¹–åŒ—è†å·",
         .netContent = "350ml",
         .ID = "GB/T20980",
         .type = "drink",
@@ -18,10 +18,10 @@ void initInfo(void)
         .shopnum = 0,
         .finder = "kele"};
     info aoliao = {
-        .name = "°ÂÀû°Â",
-        .data = "2023Äê1ÔÂ13ÈÕ",
+        .name = "å¥¥åˆ©å¥¥",
+        .data = "2023å¹´1æœˆ13æ—¥",
         .price = "8",
-        .address = "½­ËÕËÕÖİ",
+        .address = "æ±Ÿè‹è‹å·",
         .netContent = "500g",
         .ID = "GB/T15476",
         .type = "food",
@@ -29,10 +29,10 @@ void initInfo(void)
         .shopnum = 0,
         .finder = "aoliao"};
     info dove = {
-        .name = "µÂÜ½ÇÉ¿ËÁ¦",
-        .data = "2022Äê12ÔÂ25ÈÕ",
+        .name = "å¾·èŠ™å·§å…‹åŠ›",
+        .data = "2022å¹´12æœˆ25æ—¥",
         .price = "7.5",
-        .address = "ÔÆÄÏ±£É½",
+        .address = "äº‘å—ä¿å±±",
         .netContent = "500g",
         .ID = "GB/T27158",
         .type = "food",
@@ -40,10 +40,10 @@ void initInfo(void)
         .shopnum = 0,
         .finder = "defu"};
     info lays = {
-        .name = "ÀÖÊÂÊíÆ¬",
-        .data = "2022Äê10ÔÂ15ÈÕ",
+        .name = "ä¹äº‹è–¯ç‰‡",
+        .data = "2022å¹´10æœˆ15æ—¥",
         .price = "6.5",
-        .address = "ºşÄÏ³¤É³",
+        .address = "æ¹–å—é•¿æ²™",
         .netContent = "250g",
         .ID = "GB/T12138",
         .type = "food",
@@ -51,10 +51,10 @@ void initInfo(void)
         .shopnum = 0,
         .finder = "leshi"};
     info guazi = {
-        .name = "¹Ï×Ó",
-        .data = "2023Äê2ÔÂ6ÈÕ",
+        .name = "ç“œå­",
+        .data = "2023å¹´2æœˆ6æ—¥",
         .price = "4",
-        .address = "ºÓÄÏÖ£Öİ",
+        .address = "æ²³å—éƒ‘å·",
         .netContent = "360g",
         .ID = "GB/T27149",
         .type = "food",
@@ -62,10 +62,10 @@ void initInfo(void)
         .shopnum = 0,
         .finder = "guazi"};
     info ksf = {
-        .name = "¿µÊ¦¸µ·½±ãÃæ",
-        .data = "2022Äê8ÔÂ23ÈÕ",
+        .name = "åº·å¸ˆå‚…æ–¹ä¾¿é¢",
+        .data = "2022å¹´8æœˆ23æ—¥",
         .price = "5.5",
-        .address = "ºÓ±±Ê¯¼Ò×¯",
+        .address = "æ²³åŒ—çŸ³å®¶åº„",
         .netContent = "650g",
         .ID = "GB/T47819",
         .type = "food",
@@ -73,15 +73,15 @@ void initInfo(void)
         .shopnum = 0,
         .finder = "fangbianmian"};
 
-    // 2.½«ÎÄ¼şĞ´ÈëÎÄµµ
-    // 2.1´ò¿ª±¾µØÎÄµµ
+    // 2.å°†æ–‡ä»¶å†™å…¥æ–‡æ¡£
+    // 2.1æ‰“å¼€æœ¬åœ°æ–‡æ¡£
     FILE *fp = fopen("../txt/commodity.txt", "w");
     if (fp == NULL)
     {
         perror("initInfo failed:");
         return;
     }
-    // 2.2 ½«ÉÌÆ·ĞÅÏ¢Ğ´ÈëÎÄµµ
+    // 2.2 å°†å•†å“ä¿¡æ¯å†™å…¥æ–‡æ¡£
     fprintf(fp, "%s %s %s %s %s %s %s %s %d %s\n", cola.name, cola.data, cola.price, cola.address, cola.netContent, cola.ID, cola.picPath, cola.type, cola.shopnum, cola.finder);
     fprintf(fp, "%s %s %s %s %s %s %s %s %d %s\n", aoliao.name, aoliao.data, aoliao.price, aoliao.address, aoliao.netContent, aoliao.ID, aoliao.picPath, aoliao.type, aoliao.shopnum, aoliao.finder);
     fprintf(fp, "%s %s %s %s %s %s %s %s %d %s\n", dove.name, dove.data, dove.price, dove.address, dove.netContent, dove.ID, dove.picPath, dove.type, dove.shopnum, dove.finder);
@@ -89,17 +89,17 @@ void initInfo(void)
     fprintf(fp, "%s %s %s %s %s %s %s %s %d %s\n", lays.name, lays.data, lays.price, lays.address, lays.netContent, lays.ID, lays.picPath, lays.type, lays.shopnum, lays.finder);
     fprintf(fp, "%s %s %s %s %s %s %s %s %d %s\n", ksf.name, ksf.data, ksf.price, ksf.address, ksf.netContent, ksf.ID, ksf.picPath, ksf.type, ksf.shopnum, ksf.finder);
 
-    // 2.3¹Ø±ÕÎÄ¼ş
+    // 2.3å…³é—­æ–‡ä»¶
     fclose(fp);
     return;
 }
 
-// ½«Êı¾İ´ÓÎÄµµÖĞ¶ÁÈ¡£¬Ğ´ÈëÁ´±í
+// å°†æ•°æ®ä»æ–‡æ¡£ä¸­è¯»å–ï¼Œå†™å…¥é“¾è¡¨
 int inputInfo(node *head)
 {
-    // ¼ÇÂ¼ÉÌÆ·ÊıÁ¿
+    // è®°å½•å•†å“æ•°é‡
     int num = 0;
-    // ¶ÁĞ´·½Ê½´ò¿ªÄ¿±êtxtÎÄ¼ş
+    // è¯»å†™æ–¹å¼æ‰“å¼€ç›®æ ‡txtæ–‡ä»¶
     FILE *fp = fopen("../txt/commodity.txt", "r+");
     if (fp == NULL)
     {
@@ -107,48 +107,48 @@ int inputInfo(node *head)
         return 0;
     }
 
-    // Ôİ´æĞ´ÈëÊı¾İ
+    // æš‚å­˜å†™å…¥æ•°æ®
     info temp;
 
-    // ½«ÎÄ¼şÊı¾İ´æ´¢½øÈëÁ´±í
+    // å°†æ–‡ä»¶æ•°æ®å­˜å‚¨è¿›å…¥é“¾è¡¨
     while (!feof(fp))
     {
-        // Çå¿Õ»º´æ
+        // æ¸…ç©ºç¼“å­˜
         bzero(&temp, sizeof(temp));
-        // ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
+        // ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®
         fscanf(fp, "%s %s %s %s %s %s %s %s %d %s\n", temp.name, temp.data, temp.price, temp.address, temp.netContent, temp.ID, temp.picPath, temp.type, &temp.shopnum, temp.finder);
-        // Êı¾İ²åÈëÁ´±íÖĞ
+        // æ•°æ®æ’å…¥é“¾è¡¨ä¸­
         printf("%s %s %s %s %s %s %s %s %d %s\n", temp.name, temp.data, temp.price, temp.address, temp.netContent, temp.ID, temp.picPath, temp.type, temp.shopnum, temp.finder);
         linklistAdd(head, temp);
-        // Ã¿²åÈëÒ»¸ö½Úµã£¬ÉÌÆ·ÊıÁ¿¼ÓÒ»
+        // æ¯æ’å…¥ä¸€ä¸ªèŠ‚ç‚¹ï¼Œå•†å“æ•°é‡åŠ ä¸€
         num++;
     }
-    // ±éÀúÁ´±í£¬ÏÔÊ¾ÉÌÆ·ÊıÁ¿
+    // éå†é“¾è¡¨ï¼Œæ˜¾ç¤ºå•†å“æ•°é‡
     linklistShow(head);
-    printf("ÉÌÆ·ÊıÁ¿:%d\n", num);
+    printf("å•†å“æ•°é‡:%d\n", num);
 
     return num;
 }
 
-// ½áÕË
+// ç»“è´¦
 void checkout(node *head)
 {
-    // ´ò¿ª¹ºÎïĞÅÏ¢ÎÄµµ
+    // æ‰“å¼€è´­ç‰©ä¿¡æ¯æ–‡æ¡£
     FILE *fp = fopen("../txt/purchaseinfo.txt", "a+");
     if (fp == NULL)
     {
         perror("initInfo failed:");
         return;
     }
-    fprintf(fp, "ÉÌÆ·Ãû\t\t ¼Û¸ñ\t ÊıÄ¿\n");
-    // ½«¹ºÎïĞÅÏ¢Ğ´ÈëÎÄµµ
+    fprintf(fp, "å•†å“å\t\t ä»·æ ¼\t æ•°ç›®\n");
+    // å°†è´­ç‰©ä¿¡æ¯å†™å…¥æ–‡æ¡£
     for (node *pos = head->next; pos != head; pos = pos->next)
     {
         fprintf(fp, "%s\t %s \t %d\n", pos->datatype.name, pos->datatype.price, pos->datatype.shopnum);
         printf("%s\t %s \t %d\n", pos->datatype.name, pos->datatype.price, pos->datatype.shopnum);
     }
     fseek(fp, 0, SEEK_SET);
-    // Çå¿ÕÁ´±í
+    // æ¸…ç©ºé“¾è¡¨
     node *pos = head;
     while (pos->next != head)
     {
@@ -162,10 +162,10 @@ void checkout(node *head)
     return;
 }
 char findname[256];
-// ²éÕÒÉÌÆ·
+// æŸ¥æ‰¾å•†å“
 int keyboard(int td)
 {
-    // ²éÕÒ×Ö·û´®
+    // æŸ¥æ‰¾å­—ç¬¦ä¸²
     bzero(findname, sizeof(findname));
     int x1, y1;
     while (1)
