@@ -6,54 +6,54 @@
 #include <stdio.h>
 #include <string.h>
 
-// ¶¨ÒåÉÌÆ·ĞÅÏ¢½á¹¹Ìå
+// å®šä¹‰å•†å“ä¿¡æ¯ç»“æ„ä½“
 typedef struct CommodityInfo
 {
-    char name[256];       // ÉÌÆ·Ãû
-    char data[256];       // Éú²úÈÕÆÚ
-    char price[256];      // ¼Û¸ñ
-    char address[256];    // Éú²úµØÖ·
-    char netContent[256]; // ¾»º¬Á¿
-    char ID[256];         // ²úÆ·±ê×¼ºÅ
-    char picPath[256];    // Í¼Æ¬Â·¾¶
-    char type[256];       // ÉÌÆ·ÀàĞÍ
-    int shopnum;          // ¹ºÂòÊıÁ¿
-    char finder[256];     // ËÑË÷Ãû
+    char name[256];       // å•†å“å
+    char data[256];       // ç”Ÿäº§æ—¥æœŸ
+    char price[256];      // ä»·æ ¼
+    char address[256];    // ç”Ÿäº§åœ°å€
+    char netContent[256]; // å‡€å«é‡
+    char ID[256];         // äº§å“æ ‡å‡†å·
+    char picPath[256];    // å›¾ç‰‡è·¯å¾„
+    char type[256];       // å•†å“ç±»å‹
+    int shopnum;          // è´­ä¹°æ•°é‡
+    char finder[256];     // æœç´¢å
 } info;
 
-// ¶¨ÒåË«ÏòÑ­»·Á´±í£¬Éè¼Æ½Úµã
+// å®šä¹‰åŒå‘å¾ªç¯é“¾è¡¨ï¼Œè®¾è®¡èŠ‚ç‚¹
 typedef struct link_list
 {
-    // Êı¾İÓò
+    // æ•°æ®åŸŸ
     info datatype;
-    // Ö¸ÕëÓò
+    // æŒ‡é’ˆåŸŸ
     struct link_list *prev;
     struct link_list *next;
 } node;
 
-// ³õÊ¼»¯ÉÌÆ·ĞÅÏ¢,½«ÉÌÆ·ĞÅÏ¢µ¼ÈëÎÄ¼ş
+// åˆå§‹åŒ–å•†å“ä¿¡æ¯,å°†å•†å“ä¿¡æ¯å¯¼å…¥æ–‡ä»¶
 void initInfo(void);
-// ½«Êı¾İĞ´ÈëtxtÎÄµµ
+// å°†æ•°æ®å†™å…¥txtæ–‡æ¡£
 int inputInfo(node *head);
 
-// Á´±í³õÊ¼»¯
+// é“¾è¡¨åˆå§‹åŒ–
 node *linklistInit(void);
-// Á´±íÍ·²å
+// é“¾è¡¨å¤´æ’
 void linklistAdd(node *head, info newdata);
-// ±éÀúÁ´±í
+// éå†é“¾è¡¨
 void linklistShow(node *head);
-// ½Úµã²éÕÒ
+// èŠ‚ç‚¹æŸ¥æ‰¾
 _Bool linklistFind(node *head, node *dest);
-// Ìí¼Óµ½¹ºÎï³µ
+// æ·»åŠ åˆ°è´­ç‰©è½¦
 void addToshopcart(node *head, node *new);
-// ¹ºÂòÊıÁ¿
+// è´­ä¹°æ•°é‡
 void payNumadd(node *head, node *dest);
-// ½áÕË
+// ç»“è´¦
 void checkout(node *head);
-// ¼õÉÙÉÌÆ·
+// å‡å°‘å•†å“
 void payNumsub(node *head, node *dest);
 
-// ÉÌÆ··ÖÀà
+// å•†å“åˆ†ç±»
 int productCategory(node *head, node *destHead, char *name);
 
 #endif
